@@ -1,0 +1,22 @@
+.gridContainer {
+    display: grid;
+    justify-content: center;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: repeat(42, 1fr); */
+}
+
+.card {
+    width: max-content;
+    border-radius: 10px;
+    background-color: rgb(118, 173, 35);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.genresContainer {
+    display: flex;
+    flex-direction: column;
+}

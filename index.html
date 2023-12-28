@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Movie Datenbank</title>
 </head>
 <body>
+    <h1>Movies for You</h1>
+    <h2>The best MovieDB</h2>
+    <form onsubmit="search(); return false">
+        <input type="text" name="eingabe" id="eingabe" placeholder="Welchen Film suchst du?">
+        <input type="submit" value="SEARCH">
+    </form>
+    <input type="button" value="YEAR UP" onclick="yearUp(); return false">
+    <input type="button" value="YEAR DOWN" onclick="yearDown(); return false">
+    <input type="button" value="BEST RATE" onclick="bestRate(); return false">
+    <div class="gridContainer">
+        <!-- <div class="card">
+            <p>The Third Man</p>
+            <p>1949</p>
+            <p>Carol Reed</p>
+            <p>1h 44min</p>
+            <div class="genresContainer">
+                <p>Film-Noir</p>
+                <p>Mystery</p>
+                <p>Thriller</p>
+            </div>
+            <p>8.3</p>
+        </div> -->
+    </div>
     <script src="./assets/js/main.js"></script>
 </body>
 </html>
