@@ -9,9 +9,9 @@
 <body>
     <h1>Movies for You</h1>
     <h2>The best MovieDB</h2>
-    <form onsubmit="search(); return false">
+    <form >
         <input type="text" name="eingabe" id="eingabe" placeholder="Welchen Film suchst du?">
-        <input type="submit" value="SEARCH">
+        <input onclick="search()" type="button" value="SEARCH">
     </form>
     <input type="button" value="YEAR UP" onclick="yearUp(); return false">
     <input type="button" value="YEAR DOWN" onclick="yearDown(); return false">

@@ -1005,31 +1005,24 @@ const movies = [
 
 
 
-let gridContainer
+let gridContainer = document.querySelector(".gridContainer")
+let movieDiv = document.createElement("div")
 
-
-const movieCollection = movies.map ((movie) => {
-   
+let movieListe = (movieCollection) => {
+movieCollection = movies.forEach((movie) => {
     let titel = movie[0]
-   
     let jahr = movie[1]
-    
     let regisseur = movie[2]
-    
     let dauer = movie[3]
-   
     let genres = movie[4]
-
     let bewertung = movie[5]
 
-
     
 
-    let movieDiv = document.createElement("div")
     movieDiv.classList.add("card")
-
-    movieDiv.innerHTML = `
-    <p>${titel}</p> 
+    // oder stattdessen += schreiben und nicht die div definieren?s
+    movieDiv.innerHTML += `
+    <h3>${titel}</h3> 
     <p>${jahr}</p>
     <p>${regisseur}</p>
     <p>${dauer}</p>`
@@ -1037,30 +1030,43 @@ const movieCollection = movies.map ((movie) => {
     let genresDiv = document.createElement("div")
     genresDiv.classList.add("genresContainer")
 
-    let genresCollection = genres.map ((genre) => {
+    genres.forEach((genre) => {
         // erstellt >p> tag
         let genresP = document.createElement("p")
         genresP.textContent = genre
         genresDiv.appendChild(genresP)
 
-    movieDiv.appendChild(genresDiv)
-
     })
+
+    movieDiv.appendChild(genresDiv)
 
     let bewertungP = document.createElement("p")
     bewertungP.textContent = bewertung
     
     movieDiv.appendChild(bewertungP)
 
-    gridContainer = document.querySelector(".gridContainer")
-    gridContainer.appendChild(movieDiv)
-        
-        // genresDiv.appendChild(genresDiv)
     
+    gridContainer.appendChild(movieDiv)
 
-   console.log(movieDiv);
-    //console.log(genresDiv);
-    //movieDiv.appendChild(genresDiv)
-   
 })
 
+}
+
+movieListe(movies)
+
+let reset = () => {
+    movieDiv.removeChild()
+}
+
+let input
+
+let search = () => {
+    // event.preventDefault()
+    input = document.querySelector("#eingabe").value
+    let result
+    result = movies.filter((movie) => movie[0].toLowerCase().includes(input.toLowerCase()))
+    
+    console.log(result);
+    reset()
+    movieListe(result)
+}
