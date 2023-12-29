@@ -18,6 +18,29 @@
         <input type="button" value="YEAR DOWN" onclick="yearDown(); return false">
         <input type="button" value="BEST RATE" onclick="bestRate(); return false">
     </div>
+    <select name="genre" id="genre">
+        <option value="Action">Action</option>
+        <option value="Adventure">Adeventure</option>
+        <option value="Animation">Animation</option>
+        <option value="Biography">Biography</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Crime">Crime</option>
+        <option value="Drama">Drama</option>
+        <option value="Family">Family</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Film-Noir">Film-Noir</option>
+        <option value="Horror">Horror</option>
+        <option value="History">History</option>
+        <option value="Music">Music</option>
+        <option value="Musical">Musical</option>
+        <option value="Mystery">Mystery</option>
+        <option value="Romance">Romance</option>
+        <option value="Sport">Sport</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Thriller">Thriller</option>
+        <option value="War">War</option>
+        <option value="Western">Western</option>
+    </select>
     <div class="gridContainer">
         <!-- <div class="card">
             <p>The Third Man</p>
@@ -32,6 +55,63 @@
             <p>8.3</p>
         </div> -->
     </div>
+    <form id="form">
+    <h2>Film hinzufügen</h2>
+    <label for="titel">Wie lautet der Titel?</label>
+    <input type="text" name="titel" id="titel">
+    <label for="jahr">Gib das Erscheinungsjahr an</label>
+    <input type="text" name="jahr" id="jahr">
+    <label for="regisseur">Wer ist der*die Regisseur*in?</label>
+    <input type="text" name="regisseur" id="regisseur">
+    <label for="dauer">dauer</label>
+    <input type="text" name="dauer" id="dauer">
+    <h3>Genre auswählen</h3>
+    <input type="checkbox" name="genre" class="genre" id="action" value="Action">
+    <label for="action">Action</label>
+    <input type="checkbox" name="genre" class="genre" id="adventure" value="Adeventure">
+    <label for="adventure">Adventure</label>
+    <input type="checkbox" name="genre" class="genre" id="animation" value="Animation">
+    <label for="animation">Animation</label>
+    <input type="checkbox" name="genre" class="genre" id="biography" value="Biography">
+    <label for="biography">Biography</label>
+    <input type="checkbox" name="genre" class="genre" id="comedy" value="Comedy">
+    <label for="comedy">Comedy</label>
+    <input type="checkbox" name="genre" class="genre" id="crime" value="Crime">
+    <label for="crime">Crime</label>
+    <input type="checkbox" name="genre" class="genre" id="drama" value="Drama">
+    <label for="drama">Drama</label>
+    <input type="checkbox" name="genre" class="genre" id="family" value="Family">
+    <label for="family">Family</label>
+    <input type="checkbox" name="genre" class="genre" id="fantasy" value="Fantasy">
+    <label for="fantasy">Fantasy</label>
+    <input type="checkbox" name="genre" class="genre" id="filmNoir" value="Film-Noir">
+    <label for="filmNoir">Film-Noir</label>
+    <input type="checkbox" name="genre" class="genre" id="horror" value="Horror">
+    <label for="horror">Horror</label>
+    <input type="checkbox" name="genre" class="genre" id="history" value="History">
+    <label for="history">History</label>
+    <input type="checkbox" name="genre" class="genre" id="music" value="Music">
+    <label for="music">Music</label>
+    <input type="checkbox" name="genre" class="genre" id="musical" value="Musical">
+    <label for="musical">Musical</label>
+    <input type="checkbox" name="genre" class="genre" id="mystery" value="Mystery">
+    <label for="mystery">Mystery</label>
+    <input type="checkbox" name="genre" class="genre" id="romance" value="Romance">
+    <label for="romance">Romance</label>
+    <input type="checkbox" name="genre" class="genre" id="sport" value="Sport">
+    <label for="sport">Sport</label>
+    <input type="checkbox" name="genre" class="genre" id="sciFi" value="Sci-Fi">
+    <label for="sciFi">Sci-Fi</label>
+    <input type="checkbox" name="genre" class="genre" id="thriller" value="Thriller">
+    <label for="thriller">Thriller</label>
+    <input type="checkbox" name="genre" class="genre" id="war" value="War">
+    <label for="war">War</label>
+    <input type="checkbox" name="genre" class="genre" id="western" value="Western">
+    <label for="western">Western</label>
+    <label for="bewertung">Welche IMDb Bewertung besitzt dieser Film?</label>
+    <input type="text" name="bewertung" id="bewertung">
+    <input type="button" value="Film hinzufügen" id="submit" onclick="add()">
+    </form>
     <script src="./assets/js/main.js"></script>
 </body>
 </html>

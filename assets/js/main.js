@@ -1023,11 +1023,11 @@ movieCollection.forEach((movie) => {
     gridContainer.innerHTML += `
     <div class="card">
     <h3>${titel}</h3> 
-    <p>${jahr}</p>
-    <p>${regisseur}</p>
-    <p>${dauer}</p>
-    <div>${genres.map((genre) => `<p>${genre}</p>`)}</div>
-    <p>${bewertung}</p>
+    <p>Erscheinungsjahr: ${jahr}</p>
+    <p>Regisseur*in: ${regisseur}</p>
+    <p>Dauer: ${dauer}</p>
+    <div class="genres">${genres.map((genre) => `<p>${genre}</p>`).join("")}</div>
+    <p>IMDb-Bewertung: ${bewertung}</p>
     </div>`
     
     // let genresDiv = document.createElement("div")
@@ -1064,25 +1064,20 @@ let reset = () => {
 
 
 let search = () => {
-   
+
     let input = document.querySelector("#eingabe").value
 
     let result = movies.filter((movie) => movie[0].toLowerCase().includes(input.toLowerCase()))
     let yearResult = movies.filter((movie) => movie[1].toString().includes(input))
 
     if (result.length > 0) {
-        
-        console.log(result);
         reset()
         movieListe(result)
     } else if (yearResult.length > 0) {
-       
-        console.log(yearResult);
         reset()
         movieListe(yearResult)
     } else {
         reset()
-        
         gridContainer.innerHTML = `<p class="noResult">No result found</p>`
         console.log("no result found");
     }
@@ -1108,3 +1103,18 @@ let bestRate = () => {
     movieListe(result)
 }
 
+let add = () => {
+    let titel = document.querySelector("#titel").value
+    let jahr = document.querySelector("#jahr").value
+    let regisseur = document.querySelector("#regisseur").value
+    let dauer = document.querySelector("#dauer").value
+    let bewertung = document.querySelector("#bewertung").value
+
+    const genreCheckboxes = document.querySelectorAll(".genre:checked");
+    const genres = Array.from(genreCheckboxes).map(checkbox => checkbox.value);
+
+    let toArr = [titel, jahr, regisseur, dauer, genres, bewertung]
+    let newFilm = [...movies, toArr]
+
+    movieListe(newFilm)
+}
