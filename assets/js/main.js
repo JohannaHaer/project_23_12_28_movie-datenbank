@@ -1103,6 +1103,20 @@ let bestRate = () => {
     movieListe(result)
 }
 
+let selectGenre = () => {
+    let genre = document.querySelector("#genre").value
+    let result = movies.filter((movie) => movie[4].includes(genre))
+    reset()
+    movieListe(result)
+}
+
+genre.addEventListener("change", function() {
+    selectGenre()
+    
+})
+
+
+
 let add = () => {
     let titel = document.querySelector("#titel").value
     let jahr = document.querySelector("#jahr").value
