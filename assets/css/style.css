@@ -1,22 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
 .gridContainer {
     display: grid;
     justify-content: center;
-    gap: 1rem;
+    gap: 4rem;
     grid-template-columns: repeat(3, 1fr);
-    /* grid-template-rows: repeat(42, 1fr); */
 }
 
 .card {
-    width: max-content;
     border-radius: 10px;
     background-color: rgb(118, 173, 35);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
+    gap: 1.5rem;
 }
 
 .genresContainer {
     display: flex;
-    flex-direction: column;
+    gap: 1.5rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.noResult {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: red;
+    grid-column: 2;
+    margin-top: 2rem;
 }

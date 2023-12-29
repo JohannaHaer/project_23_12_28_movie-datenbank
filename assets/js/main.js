@@ -1003,13 +1003,12 @@ const movies = [
 
 
 
-
-
 let gridContainer = document.querySelector(".gridContainer")
-let movieDiv = document.createElement("div")
+// let movieDiv = document.createElement("div")
+
 
 let movieListe = (movieCollection) => {
-movieCollection = movies.forEach((movie) => {
+movieCollection.forEach((movie) => {
     let titel = movie[0]
     let jahr = movie[1]
     let regisseur = movie[2]
@@ -1018,36 +1017,40 @@ movieCollection = movies.forEach((movie) => {
     let bewertung = movie[5]
 
     
-
-    movieDiv.classList.add("card")
+    
+    // movieDiv.classList.add("card")
     // oder stattdessen += schreiben und nicht die div definieren?s
-    movieDiv.innerHTML += `
+    gridContainer.innerHTML += `
+    <div class="card">
     <h3>${titel}</h3> 
     <p>${jahr}</p>
     <p>${regisseur}</p>
-    <p>${dauer}</p>`
+    <p>${dauer}</p>
+    <div>${genres.map((genre) => `<p>${genre}</p>`)}</div>
+    <p>${bewertung}</p>
+    </div>`
     
-    let genresDiv = document.createElement("div")
-    genresDiv.classList.add("genresContainer")
+    // let genresDiv = document.createElement("div")
+    // genresDiv.classList.add("genresContainer")
 
-    genres.forEach((genre) => {
-        // erstellt >p> tag
-        let genresP = document.createElement("p")
-        genresP.textContent = genre
-        genresDiv.appendChild(genresP)
+    // genres.forEach((genre) => {
+    //     // erstellt >p> tag
+    //     let genresP = document.createElement("p")
+    //     genresP.textContent = genre
+    //     genresDiv.appendChild(genresP)
 
-    })
+    // })
 
-    movieDiv.appendChild(genresDiv)
+    // movieDiv.appendChild(genresDiv)
 
-    let bewertungP = document.createElement("p")
-    bewertungP.textContent = bewertung
+    // let bewertungP = document.createElement("p")
+    // bewertungP.textContent = bewertung
     
-    movieDiv.appendChild(bewertungP)
+    // movieDiv.appendChild(bewertungP)
 
     
-    gridContainer.appendChild(movieDiv)
-
+    // gridContainer.appendChild(movieDiv)
+   
 })
 
 }
@@ -1055,18 +1058,53 @@ movieCollection = movies.forEach((movie) => {
 movieListe(movies)
 
 let reset = () => {
-    movieDiv.removeChild()
+    gridContainer.innerHTML = ""
 }
 
-let input
+
 
 let search = () => {
-    // event.preventDefault()
-    input = document.querySelector("#eingabe").value
-    let result
-    result = movies.filter((movie) => movie[0].toLowerCase().includes(input.toLowerCase()))
+   
+    let input = document.querySelector("#eingabe").value
+
+    let result = movies.filter((movie) => movie[0].toLowerCase().includes(input.toLowerCase()))
+    let yearResult = movies.filter((movie) => movie[1].toString().includes(input))
+
+    if (result.length > 0) {
+        
+        console.log(result);
+        reset()
+        movieListe(result)
+    } else if (yearResult.length > 0) {
+       
+        console.log(yearResult);
+        reset()
+        movieListe(yearResult)
+    } else {
+        reset()
+        
+        gridContainer.innerHTML = `<p class="noResult">No result found</p>`
+        console.log("no result found");
+    }
     
-    console.log(result);
+}
+
+let yearUp = () => {
+    let result = movies.sort((a, b) => a[1] - b[1])
     reset()
     movieListe(result)
 }
+
+let yearDown = () => {
+    let result = movies.sort((a, b) => b[1] - a[1])
+    reset()
+    movieListe(result)
+}
+
+let bestRate = () => {
+    
+    let result = movies.sort((a, b) => b[5] - a[5])
+    reset()
+    movieListe(result)
+}
+
